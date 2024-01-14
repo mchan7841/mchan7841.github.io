@@ -1,0 +1,4 @@
+.pdfStyle {
+    height: 100%; /* Optional: This ensures that the container takes at least the full height of the viewport */
+    min-width: 100%;
+  }

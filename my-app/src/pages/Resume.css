@@ -1,0 +1,11 @@
+.iframe-container {
+    width: 80%;
+    height: 90%;
+    border: 1px solid #ccc;
+  }
+
+  .header{
+    height: 10%;
+    display: flex;
+    align-items: center;
+  }
