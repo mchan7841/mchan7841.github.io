@@ -22,7 +22,16 @@ const projects = [
     kind: 'embed',
     title: 'Wake Word',
     blurb:
-      'Say “Hey Grok” to ask about nearby places, local history, and geological features.',
+      'Launch Grok with “Hey Grok,” including location-based reminders on the road.',
+    href: 'https://x.com/tesla/status/2043782316850573312',
+    statusId: '2043782316850573312',
+  },
+  {
+    id: 'navigation',
+    kind: 'embed',
+    title: 'Nearby places & local history',
+    blurb:
+      'Ask Grok about nearby places, local history, and geological features while exploring.',
     href: 'https://x.com/tesla/status/2058638532353434023',
     statusId: '2058638532353434023',
   },
