@@ -1,53 +1,45 @@
 const projects = [
   {
     id: 'cybercab-grok',
+    kind: 'embed',
     title: 'Cybercab Grok',
     blurb:
       'Talk to Grok in Cybercab for rider and vehicle info, media, and climate — no screen needed.',
     href: 'https://x.com/robotaxi/status/2096428461166588208',
     statusId: '2096428461166588208',
-    kind: 'tweet',
   },
   {
     id: 'summer-grok',
+    kind: 'embed',
     title: 'Expanded Grok — Summer Release',
     blurb:
       'More Grok commands: phone calls, music search and playback, climate, glovebox, and Tesla Q&A.',
     href: 'https://x.com/tesla/status/2079584176182087827',
-    articleUrl: 'https://x.com/i/article/2079074287265447936',
     statusId: '2079584176182087827',
-    kind: 'article',
-    articleTitle: 'Summer Release 2026',
-    highlights: [
-      'Phone calls, music search/play, climate, and glovebox via Grok',
-      'Ask Grok questions about your Tesla',
-      'Shipped in the 2026 Summer Release',
-    ],
   },
   {
     id: 'wake-word',
+    kind: 'embed',
     title: 'Wake Word',
     blurb:
-      'Launch Grok with “Hey Grok,” including location-based reminders on the road.',
-    href: 'https://x.com/tesla/status/2043782316850573312',
-    articleUrl: 'https://x.com/i/article/2043720899787198464',
-    statusId: '2043782316850573312',
-    kind: 'article',
-    articleTitle: 'Spring Update 2026',
-    highlights: [
-      'Say “Hey Grok” to launch; dismiss with “goodbye”',
-      'Location-based reminders (e.g. near home)',
-      'Enable in Grok > Settings',
-    ],
-  },
-  {
-    id: 'navigation',
-    title: 'Grok for navigation commands',
-    blurb:
-      'Ask Grok about nearby places, local history, and geological features while exploring.',
+      'Say “Hey Grok” to ask about nearby places, local history, and geological features.',
     href: 'https://x.com/tesla/status/2058638532353434023',
     statusId: '2058638532353434023',
-    kind: 'tweet',
+  },
+  {
+    id: 'winter-holiday',
+    kind: 'embed',
+    title: 'Winter / Holiday Release',
+    blurb: '2025 Holiday Release — Grok and cabin features for end-of-year vehicles.',
+    href: 'https://x.com/tesla/status/1997094007948627975',
+    statusId: '1997094007948627975',
+  },
+  {
+    id: 'playstation',
+    kind: 'job',
+    title: 'PlayStation',
+    role: 'Validation & tooling',
+    blurb: 'Validation and tooling to ensure PS5 checkout.',
   },
 ];
 
