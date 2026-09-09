@@ -21,7 +21,7 @@ const Home = () => {
               <p>{project.blurb}</p>
             </div>
             <div className="embed-card__body">
-              <XEmbed href={project.href} statusId={project.statusId} />
+              <XEmbed project={project} />
             </div>
           </li>
         ))}

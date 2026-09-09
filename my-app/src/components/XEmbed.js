@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './XEmbed.css';
 
 const ensureWidgets = () =>
   new Promise((resolve) => {
@@ -21,7 +22,29 @@ const ensureWidgets = () =>
     document.body.appendChild(script);
   });
 
-const XEmbed = ({ href, statusId }) => {
+const ArticleCard = ({ project }) => {
+  const link = project.articleUrl || project.href;
+
+  return (
+    <a
+      className="article-card"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <p className="article-card__kicker">X Article</p>
+      <h3>{project.articleTitle}</h3>
+      <ul>
+        {project.highlights.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <span className="article-card__cta">Open article</span>
+    </a>
+  );
+};
+
+const TweetEmbed = ({ href, statusId }) => {
   const mountRef = useRef(null);
 
   useEffect(() => {
@@ -46,6 +69,7 @@ const XEmbed = ({ href, statusId }) => {
             quote.className = 'twitter-tweet';
             quote.setAttribute('data-theme', 'dark');
             quote.setAttribute('data-dnt', 'true');
+            quote.setAttribute('data-conversation', 'none');
             const link = document.createElement('a');
             link.href = href;
             quote.appendChild(link);
@@ -61,6 +85,14 @@ const XEmbed = ({ href, statusId }) => {
   }, [statusId, href]);
 
   return <div className="x-embed" ref={mountRef} />;
+};
+
+const XEmbed = ({ project }) => {
+  if (project.kind === 'article') {
+    return <ArticleCard project={project} />;
+  }
+
+  return <TweetEmbed href={project.href} statusId={project.statusId} />;
 };
 
 export default XEmbed;
