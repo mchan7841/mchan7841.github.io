@@ -14,7 +14,15 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            github.com/mchan7841
+            GitHub
+          </a>
+          {' · '}
+          <a
+            href="https://www.linkedin.com/in/matthew-chan-168819201"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
           </a>
         </p>
       </div>
