@@ -40,7 +40,6 @@ const ArticleCard = ({ project }) => (
           <span className="article-preview__title">
             {project.articleTitle || project.title}
           </span>
-          <span className="article-preview__link">View on X</span>
         </div>
       </a>
     </div>

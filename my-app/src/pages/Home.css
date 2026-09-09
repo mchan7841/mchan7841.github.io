@@ -198,11 +198,6 @@
   line-height: 1.3;
 }
 
-.article-preview__link {
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 550;
-}
 
 @media (max-width: 640px) {
   .home {
