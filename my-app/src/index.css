@@ -1,13 +1,13 @@
 :root {
-  --bg: #0b0b0b;
-  --bg-elevated: #121212;
-  --fg: #f2f0ea;
-  --fg-muted: #9a968c;
-  --border: #262626;
+  --bg: #090909;
+  --bg-elevated: #111113;
+  --fg: #f4f1ea;
+  --fg-muted: #9b978d;
+  --border: #26262b;
   --accent: #e8ff47;
-  --accent-ink: #0b0b0b;
-  --max: 68rem;
-  --radius: 10px;
+  --accent-ink: #090909;
+  --max: 44rem;
+  --radius: 12px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif;
 }
@@ -25,13 +25,16 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
   color: var(--fg);
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(1200px 600px at 50% -120px, rgba(232, 255, 71, 0.07), transparent 55%),
+    radial-gradient(900px 500px at 100% 20%, rgba(0, 112, 209, 0.05), transparent 50%),
+    var(--bg);
 }
 
 #root {
