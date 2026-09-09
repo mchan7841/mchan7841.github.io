@@ -9,8 +9,8 @@ const Projects = () => {
         <p className="eyebrow">Selected work</p>
         <h1>Projects</h1>
         <p className="lede">
-          Portfolio pieces around Grok in Tesla and Robotaxi — from Cybercab
-          voice control to software releases.
+          What I shipped around Grok in Tesla and Robotaxi — voice, in-car
+          guidance, and release work.
         </p>
       </header>
 

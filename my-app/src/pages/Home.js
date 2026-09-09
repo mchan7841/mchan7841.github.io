@@ -4,6 +4,8 @@ import projects from '../data/projects';
 import './Home.css';
 
 const Home = () => {
+  const featured = projects.filter((project) => project.featured);
+
   return (
     <div className="home">
       <section className="hero">
@@ -30,13 +32,13 @@ const Home = () => {
 
       <section className="home-featured" aria-labelledby="work-heading">
         <div className="section-head">
-          <h2 id="work-heading">Selected work</h2>
+          <h2 id="work-heading">Featured</h2>
           <Link to="/projects" className="section-link">
-            View all
+            All projects
           </Link>
         </div>
         <ul className="project-grid">
-          {projects.map((project) => (
+          {featured.map((project) => (
             <li key={project.id}>
               <a
                 className="project-card"
