@@ -1,25 +1,81 @@
 .hero {
-  padding: 1.5rem 0 2rem;
+  padding: 2.5rem 0 2.75rem;
+  max-width: 40rem;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.embed-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.embed-item h2 {
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
   margin-bottom: 0.85rem;
 }
 
-.embed-item .twitter-tweet {
-  margin: 0 auto !important;
+.bio {
+  color: var(--fg-muted);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 34rem;
+}
+
+.embed-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.embed-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(232, 255, 71, 0.04), transparent 28%),
+    var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.embed-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.15rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.embed-card__head h2 {
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.embed-card__link {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.embed-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.embed-card__body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0.85rem 0.85rem 1rem;
+  background: #000;
+}
+
+.embed-card__body .twitter-tweet {
+  margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .embed-grid {
+    grid-template-columns: 1fr;
+  }
 }
