@@ -10,45 +10,41 @@ const projects = [
   },
   {
     id: 'summer-grok',
-    kind: 'embed',
+    kind: 'article',
     title: 'Expanded Grok — Summer Release',
     blurb:
       'More Grok commands: phone calls, music search and playback, climate, glovebox, and Tesla Q&A.',
     href: 'https://x.com/tesla/status/2079584176182087827',
     statusId: '2079584176182087827',
+    articleTitle: 'Summer Release 2026',
+    articleImage: '/articles/summer.jpg',
   },
   {
     id: 'wake-word',
     kind: 'embed',
     title: 'Wake Word',
     blurb:
-      'Launch Grok with “Hey Grok,” including location-based reminders on the road.',
-    href: 'https://x.com/tesla/status/2043782316850573312',
-    statusId: '2043782316850573312',
-  },
-  {
-    id: 'navigation',
-    kind: 'embed',
-    title: 'Nearby places & local history',
-    blurb:
-      'Ask Grok about nearby places, local history, and geological features while exploring.',
+      'Say “Hey Grok” for nearby places, local history, and geological features while exploring.',
     href: 'https://x.com/tesla/status/2058638532353434023',
     statusId: '2058638532353434023',
   },
   {
-    id: 'winter-holiday',
-    kind: 'embed',
-    title: 'Winter / Holiday Release',
-    blurb: '2025 Holiday Release — Grok and cabin features for end-of-year vehicles.',
+    id: 'grok-nav',
+    kind: 'article',
+    title: 'Grok nav',
+    blurb: 'Add and edit navigation destinations with Grok.',
     href: 'https://x.com/tesla/status/1997094007948627975',
     statusId: '1997094007948627975',
+    articleTitle: 'Grok with Navigation Commands',
+    articleImage: '/articles/grok-nav.jpg',
   },
   {
     id: 'playstation',
     kind: 'job',
     title: 'PlayStation',
-    role: 'Validation & tooling',
-    blurb: 'Validation and tooling to ensure PS5 checkout.',
+    role: 'Validation tooling',
+    blurb: 'Built validation tooling for PS5 checkout.',
+    image: '/jobs/ps5.jpg',
   },
 ];
 

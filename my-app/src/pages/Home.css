@@ -51,7 +51,8 @@
     0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
-.card--embed {
+.card--embed,
+.card--article {
   background:
     linear-gradient(165deg, rgba(232, 255, 71, 0.06), transparent 42%),
     var(--bg-elevated);
@@ -64,11 +65,28 @@
   border-color: #2a3340;
 }
 
+.card__media {
+  background: #0a0a0a;
+  border-bottom: 1px solid var(--border);
+  max-height: 14rem;
+  overflow: hidden;
+}
+
+.card__media img {
+  display: block;
+  width: 100%;
+  height: 14rem;
+  object-fit: contain;
+  object-position: center;
+  background: linear-gradient(180deg, #111 0%, #050505 100%);
+}
+
 .card__head {
   padding: 1.15rem 1.2rem 1.05rem;
 }
 
-.card--embed .card__head {
+.card--embed .card__head,
+.card--article .card__head {
   border-bottom: 1px solid var(--border);
 }
 
@@ -108,6 +126,11 @@
   background: #000;
 }
 
+.card__body--article {
+  padding: 0;
+  background: #000;
+}
+
 .card__body .x-embed,
 .card__body .twitter-tweet {
   margin: 0 !important;
@@ -130,6 +153,52 @@
   background: #000;
 }
 
+.article-preview {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  background: #0a0a0a;
+  transition: background 0.15s ease;
+}
+
+.article-preview:hover {
+  background: #111;
+}
+
+.article-preview__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #111;
+}
+
+.article-preview__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.95rem 1.1rem 1.05rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.article-preview__eyebrow {
+  color: var(--fg-muted);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.article-preview__title {
+  color: var(--fg);
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+
 @media (max-width: 640px) {
   .home {
     gap: 2.1rem;
@@ -137,5 +206,11 @@
 
   .card__head {
     padding: 1rem 1rem 0.95rem;
+  }
+
+  .card__media,
+  .card__media img {
+    max-height: 11.5rem;
+    height: 11.5rem;
   }
 }
