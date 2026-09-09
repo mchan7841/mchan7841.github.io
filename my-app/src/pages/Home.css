@@ -1,0 +1,50 @@
+.hero {
+  padding: 2rem 0 3.5rem;
+  max-width: 44rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+}
+
+.hero .lede {
+  margin-bottom: 1.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.home-featured {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 1.1rem;
+}
+
+.section-head h2 {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.section-link {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.section-link:hover {
+  color: var(--accent);
+}

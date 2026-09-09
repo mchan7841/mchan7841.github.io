@@ -1,17 +1,19 @@
-// Header.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css'; // Import your CSS file
+import { NavLink } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
   return (
-    <header>
-      <div className="header-content">
-        <h1>Matthew Chan</h1>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/resume">Resume</Link>
+    <header className="site-header">
+      <div className="site-header__inner">
+        <NavLink to="/" className="site-logo" end>
+          Matthew Chan
+        </NavLink>
+        <nav className="site-nav" aria-label="Primary">
+          <NavLink to="/" end>
+            Home
+          </NavLink>
+          <NavLink to="/projects">Projects</NavLink>
         </nav>
       </div>
     </header>
