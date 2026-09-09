@@ -26,13 +26,13 @@ const ArticleCard = ({ project }) => (
         className="article-preview"
         href={project.href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         {project.articleImage ? (
           <img
             className="article-preview__image"
             src={project.articleImage}
-            alt=""
+            alt={project.articleTitle || project.title}
           />
         ) : null}
         <div className="article-preview__meta">
@@ -50,7 +50,7 @@ const JobCard = ({ project }) => (
   <li className="card card--job">
     {project.image ? (
       <div className="card__media">
-        <img src={project.image} alt="" />
+        <img src={project.image} alt={`${project.title} — ${project.role || project.blurb}`} />
       </div>
     ) : null}
     <div className="card__head">
