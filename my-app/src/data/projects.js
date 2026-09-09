@@ -38,8 +38,9 @@ const projects = [
   {
     id: 'winter-holiday',
     kind: 'embed',
-    title: 'Winter / Holiday Release',
-    blurb: '2025 Holiday Release — Grok and cabin features for end-of-year vehicles.',
+    title: 'Grok nav',
+    blurb:
+      'Add and edit navigation destinations with Grok — your personal guide on the road.',
     href: 'https://x.com/tesla/status/1997094007948627975',
     statusId: '1997094007948627975',
   },
