@@ -1,5 +1,5 @@
 .hero {
-  padding: 2.5rem 0 2.75rem;
+  padding: 2.5rem 0 2.5rem;
   max-width: 40rem;
 }
 
@@ -17,65 +17,51 @@
   max-width: 34rem;
 }
 
-.embed-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+.embed-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .embed-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  width: min(100%, 36rem);
   background:
-    linear-gradient(180deg, rgba(232, 255, 71, 0.04), transparent 28%),
+    linear-gradient(180deg, rgba(232, 255, 71, 0.045), transparent 30%),
     var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
 }
 
 .embed-card__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 1.15rem 0.85rem;
+  padding: 1rem 1.1rem 0.9rem;
   border-bottom: 1px solid var(--border);
 }
 
 .embed-card__head h2 {
   font-size: 1.05rem;
   letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
 }
 
-.embed-card__link {
-  flex-shrink: 0;
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.embed-card__link:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.embed-card__head p {
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
 .embed-card__body {
-  flex: 1;
   display: flex;
   justify-content: center;
-  padding: 0.85rem 0.85rem 1rem;
+  padding: 0.75rem 0.75rem 0.9rem;
   background: #000;
 }
 
+.embed-card__body .x-embed,
 .embed-card__body .twitter-tweet {
   margin: 0 !important;
-}
-
-@media (max-width: 900px) {
-  .embed-grid {
-    grid-template-columns: 1fr;
-  }
+  width: 100%;
+  max-width: 34rem;
 }

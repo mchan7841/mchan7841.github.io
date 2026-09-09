@@ -13,19 +13,12 @@ const Home = () => {
         </p>
       </section>
 
-      <ul className="embed-grid">
+      <ul className="embed-list">
         {projects.map((project) => (
           <li key={project.id} className="embed-card">
             <div className="embed-card__head">
               <h2>{project.title}</h2>
-              <a
-                className="embed-card__link"
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on X
-              </a>
+              <p>{project.blurb}</p>
             </div>
             <div className="embed-card__body">
               <XEmbed href={project.href} statusId={project.statusId} />
