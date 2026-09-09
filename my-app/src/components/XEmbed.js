@@ -32,13 +32,27 @@ const XEmbed = ({ href, statusId }) => {
         return;
       }
       mountRef.current.innerHTML = '';
-      twttr.widgets.createTweet(statusId, mountRef.current, {
-        theme: 'dark',
-        dnt: true,
-        conversation: 'none',
-        align: 'center',
-        width: 550,
-      });
+      twttr.widgets
+        .createTweet(statusId, mountRef.current, {
+          theme: 'dark',
+          dnt: true,
+          conversation: 'none',
+          align: 'center',
+          width: 520,
+        })
+        .then((el) => {
+          if (!el && mountRef.current) {
+            const quote = document.createElement('blockquote');
+            quote.className = 'twitter-tweet';
+            quote.setAttribute('data-theme', 'dark');
+            quote.setAttribute('data-dnt', 'true');
+            const link = document.createElement('a');
+            link.href = href;
+            quote.appendChild(link);
+            mountRef.current.appendChild(quote);
+            twttr.widgets.load(mountRef.current);
+          }
+        });
     });
 
     return () => {
