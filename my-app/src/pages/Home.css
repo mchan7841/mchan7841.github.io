@@ -65,3 +65,18 @@
   width: 100%;
   max-width: 34rem;
 }
+
+.x-embed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.x-embed__iframe {
+  width: 100%;
+  max-width: 550px;
+  min-height: 620px;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
+}

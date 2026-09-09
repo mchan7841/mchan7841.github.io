@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ensureWidgets = () =>
   new Promise((resolve) => {
@@ -17,15 +17,18 @@ const ensureWidgets = () =>
     script.id = 'x-widgets';
     script.src = 'https://platform.twitter.com/widgets.js';
     script.async = true;
+    script.charset = 'utf-8';
     script.onload = () => resolve(window.twttr);
     document.body.appendChild(script);
   });
 
 const XEmbed = ({ project }) => {
   const mountRef = useRef(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
+    setFailed(false);
 
     ensureWidgets().then((twttr) => {
       if (cancelled || !mountRef.current || !twttr?.widgets) {
@@ -34,32 +37,27 @@ const XEmbed = ({ project }) => {
 
       mountRef.current.innerHTML = '';
 
-      if (project.kind === 'article' && project.embedHtml) {
-        mountRef.current.innerHTML = project.embedHtml;
-        twttr.widgets.load(mountRef.current);
-        return;
-      }
-
+      // Native tweet embed — article posts render with the article preview card.
       twttr.widgets
         .createTweet(project.statusId, mountRef.current, {
           theme: 'dark',
           dnt: true,
           conversation: 'none',
           align: 'center',
-          width: 520,
+          width: 550,
+          cards: 'visible',
         })
         .then((el) => {
-          if (!el && mountRef.current) {
-            const quote = document.createElement('blockquote');
-            quote.className = 'twitter-tweet';
-            quote.setAttribute('data-theme', 'dark');
-            quote.setAttribute('data-dnt', 'true');
-            quote.setAttribute('data-conversation', 'none');
-            const link = document.createElement('a');
-            link.href = project.href;
-            quote.appendChild(link);
-            mountRef.current.appendChild(quote);
-            twttr.widgets.load(mountRef.current);
+          if (cancelled) {
+            return;
+          }
+          if (!el) {
+            setFailed(true);
+          }
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setFailed(true);
           }
         });
     });
@@ -67,9 +65,21 @@ const XEmbed = ({ project }) => {
     return () => {
       cancelled = true;
     };
-  }, [project]);
+  }, [project.statusId]);
 
-  return <div className="x-embed" ref={mountRef} />;
+  return (
+    <div className="x-embed">
+      <div ref={mountRef} />
+      {failed ? (
+        <iframe
+          className="x-embed__iframe"
+          title={project.title}
+          src={`https://platform.twitter.com/embed/Tweet.html?id=${project.statusId}&theme=dark&dnt=true`}
+          loading="lazy"
+        />
+      ) : null}
+    </div>
+  );
 };
 
 export default XEmbed;
