@@ -6,11 +6,11 @@ const Projects = () => {
   return (
     <div className="projects-page">
       <header className="page-intro">
-        <p className="eyebrow">Projects</p>
-        <h1>Grok in Tesla &amp; Robotaxi</h1>
+        <p className="eyebrow">Selected work</p>
+        <h1>Projects</h1>
         <p className="lede">
-          Five releases that put Grok in the cabin — voice control, software
-          drops, and a guide for the world outside.
+          Portfolio pieces around Grok in Tesla and Robotaxi — from Cybercab
+          voice control to software releases.
         </p>
       </header>
 
