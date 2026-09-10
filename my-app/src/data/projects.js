@@ -4,7 +4,7 @@ const projects = [
     kind: 'tweet',
     title: 'Cybercab Grok',
     blurb:
-      'Talk to Grok in Cybercab for rider and vehicle info, media, and climate — no screen needed.',
+      'Talk to Grok in Cybercab for rider and vehicle info, media, and climate.',
     href: 'https://x.com/robotaxi/status/2096428461166588208',
     tweet: {
       name: 'Robotaxi',
@@ -44,7 +44,7 @@ const projects = [
   {
     id: 'grok-nav',
     kind: 'article',
-    title: 'Grok navigation',
+    title: 'Grok Navigation',
     blurb:
       'Add and edit navigation destinations with Grok.',
     href: 'https://x.com/tesla/status/1997094007948627975',
