@@ -114,8 +114,8 @@ const Home = () => {
       <section className="hero">
         <h1>Matthew Chan</h1>
         <p className="bio">
-          Software engineer at Tesla on voice and LLM experiences — automation,
-          validation, and tooling that makes Grok features shippable.
+          Software engineer at Tesla on voice and LLM experiences for in-car
+          Grok.
         </p>
       </section>
 
