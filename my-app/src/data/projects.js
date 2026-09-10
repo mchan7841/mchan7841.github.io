@@ -4,7 +4,7 @@ const projects = [
     kind: 'tweet',
     title: 'Cybercab Grok',
     blurb:
-      'Automation and validation for Grok in Cybercab — rider and vehicle info, media, and climate without a screen.',
+      'Built automation and validation so Grok in Cybercab can handle rider and vehicle info, media, and climate — no screen needed.',
     href: 'https://x.com/robotaxi/status/2096428461166588208',
     tweet: {
       name: 'Robotaxi',
@@ -26,7 +26,7 @@ const projects = [
     kind: 'article',
     title: 'Expanded Grok — Summer Release',
     blurb:
-      'Automation and validation tooling for expanded Grok commands: phone calls, music, climate, glovebox, and Tesla Q&A.',
+      'Owned the automation and validation tooling behind expanded Grok commands: phone calls, music, climate, glovebox, and Tesla Q&A.',
     href: 'https://x.com/tesla/status/2079584176182087827',
     articleTitle: 'Summer Release 2026',
     articleImage: '/articles/summer.jpg',
@@ -36,7 +36,7 @@ const projects = [
     kind: 'tweet',
     title: 'Wake Word',
     blurb:
-      'Automation and validation for “Hey Grok” wake word and location-based reminders.',
+      'Built automation and validation for “Hey Grok” wake word and location-based reminders.',
     href: 'https://x.com/tesla/status/2043782316850573312',
     tweet: {
       name: 'Tesla',
@@ -52,7 +52,7 @@ const projects = [
     kind: 'tweet',
     title: 'Nearby places & local history',
     blurb:
-      'Automation and validation for Grok on nearby places, local history, and geological features.',
+      'Built automation and validation for Grok on nearby places, local history, and geological features.',
     href: 'https://x.com/tesla/status/2058638532353434023',
     tweet: {
       name: 'Tesla',
@@ -68,7 +68,7 @@ const projects = [
     kind: 'article',
     title: 'Grok nav',
     blurb:
-      'Automation and validation for Grok navigation commands — add and edit destinations.',
+      'Built tools and validation so Grok can add and edit navigation destinations reliably.',
     href: 'https://x.com/tesla/status/1997094007948627975',
     articleTitle: 'Grok with Navigation Commands',
     articleImage: '/articles/grok-nav.jpg',
@@ -79,7 +79,7 @@ const projects = [
     title: 'PlayStation',
     role: 'Validation tooling',
     blurb:
-      'Automation and validation tooling for PS5 checkout.',
+      'Built automation and validation tooling for PS5 checkout when existing tooling wasn’t enough.',
     image: '/jobs/ps5.jpg',
   },
 ];
