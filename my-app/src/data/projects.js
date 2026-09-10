@@ -48,22 +48,6 @@ const projects = [
     },
   },
   {
-    id: 'navigation',
-    kind: 'tweet',
-    title: 'Nearby places & local history',
-    blurb:
-      'Ask Grok about nearby places, local history, and geological features.',
-    href: 'https://x.com/tesla/status/2058638532353434023',
-    tweet: {
-      name: 'Tesla',
-      handle: 'Tesla',
-      avatar: '/avatars/tesla.png',
-      text:
-        '.@Grok can be your guide while exploring new spots.\n\nJust say “Hey Grok” to ask about geological features, local history, or places to check out nearby.',
-      meta: 'May 24, 2026 · 5.2K likes',
-    },
-  },
-  {
     id: 'grok-nav',
     kind: 'article',
     title: 'Grok nav',
