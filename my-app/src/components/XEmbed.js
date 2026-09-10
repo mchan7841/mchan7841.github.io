@@ -22,6 +22,24 @@ const ensureWidgets = () =>
     document.body.appendChild(script);
   });
 
+const fillWidth = (node) => {
+  if (!node) {
+    return;
+  }
+  node.style.margin = '0';
+  node.style.width = '100%';
+  node.style.maxWidth = '100%';
+  node.style.display = 'block';
+  const iframe =
+    node.tagName === 'IFRAME' ? node : node.querySelector?.('iframe');
+  if (iframe) {
+    iframe.style.margin = '0';
+    iframe.style.width = '100%';
+    iframe.style.maxWidth = '100%';
+    iframe.style.display = 'block';
+  }
+};
+
 const XEmbed = ({ project }) => {
   const mountRef = useRef(null);
   const shellRef = useRef(null);
@@ -40,6 +58,7 @@ const XEmbed = ({ project }) => {
 
         mountRef.current.innerHTML = '';
 
+        // X caps embeds at 550; size to the card so there is no side gutter.
         const embedWidth = Math.max(
           280,
           Math.min(550, Math.floor(width || 550))
@@ -50,7 +69,6 @@ const XEmbed = ({ project }) => {
             theme: 'dark',
             dnt: true,
             conversation: 'none',
-            align: 'center',
             width: embedWidth,
             cards: 'visible',
           })
@@ -60,7 +78,9 @@ const XEmbed = ({ project }) => {
             }
             if (!el) {
               setFailed(true);
+              return;
             }
+            fillWidth(el);
           })
           .catch(() => {
             if (!cancelled) {
@@ -75,15 +95,14 @@ const XEmbed = ({ project }) => {
       let last = 0;
       resizeObserver = new ResizeObserver((entries) => {
         const w = entries[0]?.contentRect?.width || 0;
-        // Avoid thrashing on tiny deltas
-        if (Math.abs(w - last) < 24 && last !== 0) {
+        if (Math.abs(w - last) < 16 && last !== 0) {
           return;
         }
         last = w;
         render(w);
       });
       resizeObserver.observe(shell);
-      render(shell.clientWidth);
+      render(shell.clientWidth || 550);
     } else {
       render(shell?.clientWidth || 550);
     }
