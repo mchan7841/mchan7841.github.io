@@ -36,7 +36,7 @@ const projects = [
     kind: 'article',
     title: 'Wake Word',
     blurb:
-      '“Hey Grok” wake word and location-based reminders on the road.',
+      '“Hey Grok” wake word.',
     href: 'https://x.com/tesla/status/2043782316850573312',
     articleTitle: 'Spring Update 2026',
     articleImage: '/articles/wake-word.jpg',
