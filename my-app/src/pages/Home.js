@@ -114,8 +114,7 @@ const Home = () => {
       <section className="hero">
         <h1>Matthew Chan</h1>
         <p className="bio">
-          Software engineer at Tesla on voice and LLM experiences for in-car
-          Grok.
+          Software engineer at Tesla on voice and LLM experiences.
         </p>
       </section>
 
