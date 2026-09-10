@@ -109,12 +109,13 @@ const XEmbed = ({ project }) => {
       render(shell?.clientWidth || 550);
     }
 
+    const mountNode = mountRef.current;
     return () => {
       cancelled = true;
       renderToken += 1;
       resizeObserver?.disconnect();
-      if (mountRef.current) {
-        mountRef.current.innerHTML = '';
+      if (mountNode) {
+        mountNode.innerHTML = '';
       }
     };
   }, [project.statusId]);
