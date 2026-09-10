@@ -58,6 +58,11 @@
     var(--bg-elevated);
 }
 
+/* Match X embed max width so the tweet fills the card with no side gutters */
+.card--embed {
+  width: min(100%, 550px);
+}
+
 .card--job {
   background:
     linear-gradient(165deg, rgba(0, 112, 209, 0.12), transparent 55%),
@@ -135,7 +140,8 @@
 
 .card--embed .card__body {
   padding: 0;
-  background: #0a0a0a;
+  margin: 0;
+  background: #000;
 }
 
 .card__body--article {
@@ -152,25 +158,25 @@
 
 .x-embed {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
+  display: block;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #000;
+  line-height: 0;
 }
 
 .x-embed__mount {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: block;
   line-height: 0;
 }
 
+.x-embed__mount > *,
 .x-embed__mount iframe,
-.x-embed iframe.twitter-tweet,
+.x-embed iframe,
 .x-embed .twitter-tweet {
+  display: block !important;
   margin: 0 !important;
+  width: 100% !important;
   max-width: 100% !important;
 }
 
@@ -178,10 +184,10 @@
   display: block;
   width: 100%;
   max-width: 100%;
-  min-height: 28rem;
+  min-height: 24rem;
   border: 0;
   border-radius: 0;
-  background: #0a0a0a;
+  background: #000;
 }
 
 .article-preview {
