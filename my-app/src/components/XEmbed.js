@@ -48,32 +48,37 @@ const XEmbed = ({ project }) => {
   useEffect(() => {
     let cancelled = false;
     let resizeObserver;
+    let renderToken = 0;
+    let lastWidth = 0;
     setFailed(false);
 
     const render = (width) => {
+      const w = Math.max(280, Math.min(550, Math.floor(width || 550)));
+      if (lastWidth && Math.abs(w - lastWidth) < 16) {
+        return;
+      }
+      lastWidth = w;
+      const token = ++renderToken;
+
       ensureWidgets().then((twttr) => {
-        if (cancelled || !mountRef.current || !twttr?.widgets) {
+        if (cancelled || token !== renderToken || !mountRef.current || !twttr?.widgets) {
           return;
         }
 
+        // One mount only — clear before createTweet so we never stack embeds.
         mountRef.current.innerHTML = '';
-
-        // X caps embeds at 550; size to the card so there is no side gutter.
-        const embedWidth = Math.max(
-          280,
-          Math.min(550, Math.floor(width || 550))
-        );
+        setFailed(false);
 
         twttr.widgets
           .createTweet(project.statusId, mountRef.current, {
             theme: 'dark',
             dnt: true,
             conversation: 'none',
-            width: embedWidth,
+            width: w,
             cards: 'visible',
           })
           .then((el) => {
-            if (cancelled) {
+            if (cancelled || token !== renderToken) {
               return;
             }
             if (!el) {
@@ -83,7 +88,7 @@ const XEmbed = ({ project }) => {
             fillWidth(el);
           })
           .catch(() => {
-            if (!cancelled) {
+            if (!cancelled && token === renderToken) {
               setFailed(true);
             }
           });
@@ -92,24 +97,25 @@ const XEmbed = ({ project }) => {
 
     const shell = shellRef.current;
     if (shell && typeof ResizeObserver !== 'undefined') {
-      let last = 0;
       resizeObserver = new ResizeObserver((entries) => {
-        const w = entries[0]?.contentRect?.width || 0;
-        if (Math.abs(w - last) < 16 && last !== 0) {
-          return;
+        const width = entries[0]?.contentRect?.width || 0;
+        if (width > 0) {
+          render(width);
         }
-        last = w;
-        render(w);
       });
       resizeObserver.observe(shell);
-      render(shell.clientWidth || 550);
+      // Don't also call render() here — observe already delivers the first size.
     } else {
       render(shell?.clientWidth || 550);
     }
 
     return () => {
       cancelled = true;
+      renderToken += 1;
       resizeObserver?.disconnect();
+      if (mountRef.current) {
+        mountRef.current.innerHTML = '';
+      }
     };
   }, [project.statusId]);
 
