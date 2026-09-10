@@ -4,7 +4,7 @@ const projects = [
     kind: 'tweet',
     title: 'Cybercab Grok',
     blurb:
-      'Built automation and validation so Grok in Cybercab can handle rider and vehicle info, media, and climate — no screen needed.',
+      'Automation and validation for Grok in Cybercab — rider and vehicle info, media, and climate without a screen.',
     href: 'https://x.com/robotaxi/status/2096428461166588208',
     tweet: {
       name: 'Robotaxi',
@@ -17,6 +17,7 @@ const projects = [
         text:
           'Cybercab has some pretty in-depth Grok integration, so for many actions, you never have to touch the screen.',
       },
+      image: '/tweets/cybercab.jpg',
       meta: 'Sep 5, 2026 · 3.7K likes',
     },
   },
@@ -25,7 +26,7 @@ const projects = [
     kind: 'article',
     title: 'Expanded Grok — Summer Release',
     blurb:
-      'Owned the automation and validation tooling behind expanded Grok commands: phone calls, music, climate, glovebox, and Tesla Q&A.',
+      'Automation and validation tooling for expanded Grok commands: phone calls, music, climate, glovebox, and Tesla Q&A.',
     href: 'https://x.com/tesla/status/2079584176182087827',
     articleTitle: 'Summer Release 2026',
     articleImage: '/articles/summer.jpg',
@@ -35,15 +36,14 @@ const projects = [
     kind: 'tweet',
     title: 'Wake Word',
     blurb:
-      'Automated and validated “Hey Grok,” including location-based reminders on the road.',
+      'Automation and validation for “Hey Grok” wake word and location-based reminders.',
     href: 'https://x.com/tesla/status/2043782316850573312',
     tweet: {
       name: 'Tesla',
       handle: 'Tesla',
       avatar: '/avatars/tesla.png',
       text:
-        'Say “Hey Grok” to launch Grok — including location-based reminders on the road.',
-      image: '/articles/wake-word.jpg',
+        'Say “Hey Grok” to launch Grok, including location-based reminders on the road.',
       meta: 'Apr 13, 2026 · 13.5K likes',
     },
   },
@@ -52,7 +52,7 @@ const projects = [
     kind: 'tweet',
     title: 'Nearby places & local history',
     blurb:
-      'Built automation and validation so Grok can answer nearby places, local history, and geological features while exploring.',
+      'Automation and validation for Grok on nearby places, local history, and geological features.',
     href: 'https://x.com/tesla/status/2058638532353434023',
     tweet: {
       name: 'Tesla',
@@ -68,7 +68,7 @@ const projects = [
     kind: 'article',
     title: 'Grok nav',
     blurb:
-      'Built tools and validation so Grok can add and edit navigation destinations reliably.',
+      'Automation and validation for Grok navigation commands — add and edit destinations.',
     href: 'https://x.com/tesla/status/1997094007948627975',
     articleTitle: 'Grok with Navigation Commands',
     articleImage: '/articles/grok-nav.jpg',
@@ -79,7 +79,7 @@ const projects = [
     title: 'PlayStation',
     role: 'Validation tooling',
     blurb:
-      'Built automation and validation tooling for PS5 checkout when existing tooling wasn’t enough.',
+      'Automation and validation tooling for PS5 checkout.',
     image: '/jobs/ps5.jpg',
   },
 ];
