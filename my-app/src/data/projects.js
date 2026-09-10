@@ -33,40 +33,18 @@ const projects = [
   },
   {
     id: 'wake-word',
-    kind: 'tweet',
+    kind: 'article',
     title: 'Wake Word',
     blurb:
       '“Hey Grok” wake word and location-based reminders on the road.',
     href: 'https://x.com/tesla/status/2043782316850573312',
-    tweet: {
-      name: 'Tesla',
-      handle: 'Tesla',
-      avatar: '/avatars/tesla.png',
-      text:
-        'Say “Hey Grok” to launch Grok, including location-based reminders on the road.',
-      meta: 'Apr 13, 2026 · 13.5K likes',
-    },
-  },
-  {
-    id: 'navigation',
-    kind: 'tweet',
-    title: 'Nearby places & local history',
-    blurb:
-      'Ask Grok about nearby places, local history, and geological features.',
-    href: 'https://x.com/tesla/status/2058638532353434023',
-    tweet: {
-      name: 'Tesla',
-      handle: 'Tesla',
-      avatar: '/avatars/tesla.png',
-      text:
-        '.@Grok can be your guide while exploring new spots.\n\nJust say “Hey Grok” to ask about geological features, local history, or places to check out nearby.',
-      meta: 'May 24, 2026 · 5.2K likes',
-    },
+    articleTitle: 'Spring Update 2026',
+    articleImage: '/articles/wake-word.jpg',
   },
   {
     id: 'grok-nav',
     kind: 'article',
-    title: 'Grok nav',
+    title: 'Grok navigation',
     blurb:
       'Add and edit navigation destinations with Grok.',
     href: 'https://x.com/tesla/status/1997094007948627975',
