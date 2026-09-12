@@ -100,7 +100,6 @@ const JobCard = ({ project }) => (
       </div>
     ) : null}
     <div className="card__head">
-      <p className="card__eyebrow">Previously</p>
       <h2>{project.title}</h2>
       {project.role ? <p className="card__role">{project.role}</p> : null}
       <p>{project.blurb}</p>
@@ -109,6 +108,9 @@ const JobCard = ({ project }) => (
 );
 
 const Home = () => {
+  const selected = projects.filter((project) => project.kind !== 'job');
+  const previously = projects.filter((project) => project.kind === 'job');
+
   return (
     <div className="home">
       <section className="hero">
@@ -121,10 +123,7 @@ const Home = () => {
       <section className="work" aria-label="Selected work">
         <h2 className="section-label">Selected work</h2>
         <ul className="card-list">
-          {projects.map((project) => {
-            if (project.kind === 'job') {
-              return <JobCard key={project.id} project={project} />;
-            }
+          {selected.map((project) => {
             if (project.kind === 'article') {
               return <ArticleCard key={project.id} project={project} />;
             }
@@ -132,6 +131,17 @@ const Home = () => {
           })}
         </ul>
       </section>
+
+      {previously.length > 0 ? (
+        <section className="work work--previously" aria-label="Previously">
+          <h2 className="section-label">Previously</h2>
+          <ul className="card-list">
+            {previously.map((project) => (
+              <JobCard key={project.id} project={project} />
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </div>
   );
 };
