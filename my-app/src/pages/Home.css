@@ -10,10 +10,10 @@
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 6vw, 3.4rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
+  font-size: clamp(2.35rem, 5.8vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
   margin-bottom: 0.8rem;
 }
 
@@ -25,10 +25,11 @@
 }
 
 .section-label {
-  color: var(--fg-muted);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 0.95rem;
 }
@@ -44,23 +45,24 @@
   width: min(100%, 36rem);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius);
   overflow: hidden;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 18px 40px rgba(0, 0, 0, 0.35);
+    0 1px 0 rgba(242, 234, 216, 0.06) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 10px 28px rgba(0, 0, 0, 0.4);
 }
 
 .card--tweet,
 .card--article {
   background:
-    linear-gradient(165deg, rgba(232, 255, 71, 0.06), transparent 42%),
+    linear-gradient(165deg, rgba(230, 195, 92, 0.07), transparent 42%),
     var(--bg-elevated);
 }
 
 .card--job {
   background:
-    linear-gradient(165deg, rgba(0, 112, 209, 0.12), transparent 55%),
+    linear-gradient(165deg, rgba(90, 140, 180, 0.12), transparent 55%),
     var(--bg-elevated);
   border-color: #2a3340;
 }
@@ -106,9 +108,10 @@
 
 
 .card__role {
-  color: var(--fg);
-  font-size: 0.9rem;
-  font-weight: 550;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
   margin-bottom: 0.4rem;
 }
 
@@ -165,10 +168,11 @@
 }
 
 .article-preview__eyebrow {
-  color: var(--fg-muted);
+  color: var(--accent);
+  font-family: var(--font-mono);
   font-size: 0.66rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -275,7 +279,7 @@
   margin: 0 0 0.85rem;
   padding: 0.75rem 0.85rem;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -297,7 +301,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: var(--radius);
   margin: 0 0 0.75rem;
   object-fit: contain;
   background: #111;
@@ -305,6 +309,7 @@
 
 .tweet-preview__meta {
   color: var(--fg-muted);
-  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   margin: 0;
 }

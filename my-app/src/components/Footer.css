@@ -1,7 +1,7 @@
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1.35rem 0 1.6rem;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.28);
 }
 
 .site-footer__inner {
@@ -11,8 +11,9 @@
 
 .site-footer p {
   color: var(--fg-muted);
-  font-size: 0.86rem;
-  letter-spacing: 0.01em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
 }
 
 .site-footer a {
