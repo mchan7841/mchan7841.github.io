@@ -2,12 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import './VoiceWaveform.css';
 
 const VoiceWaveform = () => {
+  const rootRef = useRef(null);
   const canvasRef = useRef(null);
   const rafRef = useRef(0);
 
   useEffect(() => {
+    const root = rootRef.current;
     const canvas = canvasRef.current;
-    if (!canvas) return undefined;
+    if (!root || !canvas) return undefined;
 
     const ctx = canvas.getContext('2d');
     const reduceMotion = window.matchMedia(
@@ -18,6 +20,9 @@ const VoiceWaveform = () => {
     let height = 0;
     let dpr = 1;
     let t0 = performance.now();
+    let tabVisible = document.visibilityState === 'visible';
+    let onScreen = true;
+    let running = false;
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -39,18 +44,17 @@ const VoiceWaveform = () => {
       const mid = height * 0.52;
       const amp = height * 0.28;
 
-      // soft baseline
       ctx.beginPath();
-      ctx.strokeStyle = 'rgba(230, 195, 92, 0.18)';
+      ctx.strokeStyle = 'rgba(230, 195, 92, 0.1)';
       ctx.lineWidth = 1;
       ctx.moveTo(0, mid);
       ctx.lineTo(width, mid);
       ctx.stroke();
 
       const layers = [
-        { color: 'rgba(230, 195, 92, 0.22)', width: 1.25, scale: 0.55, speed: 0.7 },
-        { color: 'rgba(230, 195, 92, 0.45)', width: 1.6, scale: 0.85, speed: 1.05 },
-        { color: 'rgba(242, 234, 216, 0.55)', width: 1.35, scale: 1, speed: 1.35 },
+        { color: 'rgba(230, 195, 92, 0.12)', width: 1.2, scale: 0.55, speed: 0.7 },
+        { color: 'rgba(230, 195, 92, 0.22)', width: 1.45, scale: 0.85, speed: 1.05 },
+        { color: 'rgba(242, 234, 216, 0.28)', width: 1.25, scale: 1, speed: 1.35 },
       ];
 
       layers.forEach((layer, li) => {
@@ -65,7 +69,8 @@ const VoiceWaveform = () => {
           const x = (i / steps) * width;
           const nx = x / width;
           const envelope =
-            Math.sin(Math.PI * nx) ** 1.35 * (0.55 + 0.45 * Math.sin(t * 0.9 + li));
+            Math.sin(Math.PI * nx) ** 1.35 *
+            (0.55 + 0.45 * Math.sin(t * 0.9 + li));
           const y =
             mid +
             amp *
@@ -80,8 +85,7 @@ const VoiceWaveform = () => {
         ctx.stroke();
       });
 
-      // sparse vertical ticks — oscilloscope feel
-      ctx.strokeStyle = 'rgba(230, 195, 92, 0.12)';
+      ctx.strokeStyle = 'rgba(230, 195, 92, 0.07)';
       ctx.lineWidth = 1;
       const tickEvery = Math.max(48, Math.floor(width / 12));
       for (let x = tickEvery; x < width; x += tickEvery) {
@@ -92,29 +96,65 @@ const VoiceWaveform = () => {
       }
     };
 
-    resize();
-    drawFrame(performance.now());
-
-    if (reduceMotion) {
-      window.addEventListener('resize', resize);
-      return () => window.removeEventListener('resize', resize);
-    }
+    const stop = () => {
+      if (!running) return;
+      running = false;
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    };
 
     const loop = (now) => {
+      if (!running) return;
       drawFrame(now);
       rafRef.current = requestAnimationFrame(loop);
     };
-    rafRef.current = requestAnimationFrame(loop);
+
+    const start = () => {
+      if (reduceMotion || running || !tabVisible || !onScreen) return;
+      running = true;
+      rafRef.current = requestAnimationFrame(loop);
+    };
+
+    const sync = () => {
+      if (tabVisible && onScreen && !reduceMotion) start();
+      else stop();
+    };
+
+    const onVisibility = () => {
+      tabVisible = document.visibilityState === 'visible';
+      sync();
+    };
+
+    resize();
+    drawFrame(performance.now());
+
     window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', onVisibility);
+
+    let observer;
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          onScreen = Boolean(entry && entry.isIntersecting);
+          sync();
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(root);
+    }
+
+    sync();
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
+      stop();
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibility);
+      if (observer) observer.disconnect();
     };
   }, []);
 
   return (
-    <div className="voice-wave" aria-hidden="true">
+    <div ref={rootRef} className="voice-wave" aria-hidden="true">
       <canvas ref={canvasRef} className="voice-wave__canvas" />
     </div>
   );

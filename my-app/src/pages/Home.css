@@ -36,7 +36,6 @@
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: 0.8rem;
-  text-shadow: 0 0 24px rgba(12, 11, 9, 0.85);
 }
 
 .bio {
@@ -44,7 +43,6 @@
   font-size: 1.125rem;
   line-height: 1.55;
   max-width: 32rem;
-  text-shadow: 0 0 18px rgba(12, 11, 9, 0.9);
 }
 
 .section-label {
