@@ -4,35 +4,30 @@
   pointer-events: none;
   overflow: hidden;
   mask-image: linear-gradient(
-    90deg,
+    180deg,
     transparent 0%,
-    #000 8%,
-    #000 92%,
+    #000 22%,
+    #000 70%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
-    90deg,
+    180deg,
     transparent 0%,
-    #000 8%,
-    #000 92%,
+    #000 22%,
+    #000 70%,
     transparent 100%
   );
-  opacity: 0.62;
+  opacity: 0.5;
 }
 
 .voice-wave__canvas {
   display: block;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 4px rgba(230, 195, 92, 0.25));
 }
 
 @media (prefers-reduced-motion: reduce) {
   .voice-wave {
-    opacity: 0.45;
-  }
-
-  .voice-wave__canvas {
-    filter: none;
+    opacity: 0.38;
   }
 }
