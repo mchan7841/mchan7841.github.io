@@ -5,8 +5,29 @@
 }
 
 .hero {
-  padding: 1.1rem 0 0.15rem;
+  position: relative;
+  padding: 0.4rem 0 0.35rem;
+  max-width: 100%;
+  min-height: 11.5rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__wave {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -0.4rem;
+  width: min(100vw, 52rem);
+  height: 11.5rem;
+  z-index: 0;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
   max-width: 38rem;
+  padding: 2.6rem 0 0.15rem;
 }
 
 .hero h1 {
