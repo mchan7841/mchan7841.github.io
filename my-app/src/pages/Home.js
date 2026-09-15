@@ -1,5 +1,6 @@
 import React from 'react';
 import projects from '../data/projects';
+import VoiceWaveform from '../components/VoiceWaveform';
 import './Home.css';
 
 const ArticleCard = ({ project }) => (
@@ -114,10 +115,15 @@ const Home = () => {
   return (
     <div className="home">
       <section className="hero">
-        <h1>Matthew Chan</h1>
-        <p className="bio">
-          Software engineer at Tesla on voice and LLM experiences.
-        </p>
+        <div className="hero__wave">
+          <VoiceWaveform />
+        </div>
+        <div className="hero__copy">
+          <h1>Matthew Chan</h1>
+          <p className="bio">
+            Software engineer at Tesla on voice and LLM experiences.
+          </p>
+        </div>
       </section>
 
       <section className="work" aria-label="Selected work">

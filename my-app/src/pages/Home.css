@@ -5,8 +5,29 @@
 }
 
 .hero {
-  padding: 1.1rem 0 0.15rem;
+  position: relative;
+  padding: 0.4rem 0 0.35rem;
+  max-width: 100%;
+  min-height: 11.5rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__wave {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -0.4rem;
+  width: min(100vw, 52rem);
+  height: 11.5rem;
+  z-index: 0;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
   max-width: 38rem;
+  padding: 2.6rem 0 0.15rem;
 }
 
 .hero h1 {
@@ -15,6 +36,7 @@
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: 0.8rem;
+  text-shadow: 0 0 24px rgba(12, 11, 9, 0.85);
 }
 
 .bio {
@@ -22,6 +44,7 @@
   font-size: 1.125rem;
   line-height: 1.55;
   max-width: 32rem;
+  text-shadow: 0 0 18px rgba(12, 11, 9, 0.9);
 }
 
 .section-label {
