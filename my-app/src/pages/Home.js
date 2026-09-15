@@ -121,7 +121,7 @@ const Home = () => {
         <div className="hero__copy">
           <h1>Matthew Chan</h1>
           <p className="bio">
-            Software engineer at Tesla on voice and LLM experiences.
+            Software engineer at Tesla, working on voice.
           </p>
         </div>
       </section>
