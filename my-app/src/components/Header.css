@@ -9,7 +9,7 @@
 .site-header__inner {
   width: min(100% - 2rem, var(--max));
   margin: 0 auto;
-  min-height: 2.45rem;
+  min-height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,14 +17,32 @@
 }
 
 .site-logo {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   color: var(--fg-muted);
   transition: color 0.15s ease;
 }
 
+.site-logo__mark {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.site-logo__word {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
 .site-logo:hover {
   color: var(--accent);
+}
+
+.site-logo:hover .site-logo__mark {
+  filter: brightness(1.1);
 }
