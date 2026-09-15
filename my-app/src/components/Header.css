@@ -2,16 +2,14 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(12, 11, 9, 0.86);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .site-header__inner {
   width: min(100% - 2rem, var(--max));
   margin: 0 auto;
-  min-height: 3.4rem;
+  min-height: 2.45rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,13 +18,19 @@
 
 .site-logo {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--fg-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
   transition: color 0.15s ease;
 }
 
+.site-logo::before {
+  content: '> ';
+  opacity: 0.7;
+}
+
 .site-logo:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
