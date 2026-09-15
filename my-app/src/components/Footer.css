@@ -1,7 +1,7 @@
 .site-footer {
-  border-top: 1px solid var(--border);
-  padding: 1.35rem 0 1.6rem;
-  background: rgba(0, 0, 0, 0.28);
+  border-top: 1px dashed var(--border);
+  padding: 1rem 0 1.25rem;
+  background: transparent;
 }
 
 .site-footer__inner {
@@ -12,19 +12,18 @@
 .site-footer p {
   color: var(--fg-muted);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
 
 .site-footer a {
-  color: var(--fg);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: transparent;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .site-footer a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
+  color: var(--fg);
+  border-bottom-color: var(--accent);
 }
