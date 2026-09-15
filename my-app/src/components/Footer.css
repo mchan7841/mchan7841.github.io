@@ -1,6 +1,6 @@
 .site-footer {
-  border-top: 1px dashed var(--border);
-  padding: 1rem 0 1.25rem;
+  border-top: 1px solid var(--border);
+  padding: 1.1rem 0 1.35rem;
   background: transparent;
 }
 
@@ -12,18 +12,18 @@
 .site-footer p {
   color: var(--fg-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
 }
 
 .site-footer a {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .site-footer a:hover {
-  color: var(--fg);
+  color: var(--accent);
   border-bottom-color: var(--accent);
 }
